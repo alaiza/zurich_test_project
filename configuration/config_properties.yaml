@@ -1,0 +1,7 @@
+DATABASE_host : 'localhost'
+DATABASE_port : '3306'
+DATABASE_db : 'smallpdf'
+DATABASE_user : 'zurich_test'
+DATABASE_pass : 'zurich_test'
+
+name_app : 'Test_project_Zurich'
