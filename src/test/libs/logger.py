@@ -15,7 +15,7 @@ from logging.handlers import TimedRotatingFileHandler
 def specific_logger():
     formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s')
 
-    handler = TimedRotatingFileHandler('logs/crypto_logfile.log',
+    handler = TimedRotatingFileHandler('logs/zurich_test_logfile.log',
                                        when='midnight',
                                        backupCount=10)
     handler.setFormatter(formatter)
