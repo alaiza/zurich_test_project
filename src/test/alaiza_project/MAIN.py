@@ -3,7 +3,9 @@ from src.test.alaiza_project.database_service import DBService
 import yaml
 import src.test.alaiza_project.manager as manager
 import time
-from datetime import date
+import time
+from datetime import datetime
+
 import sys
 
 
@@ -26,12 +28,14 @@ def main_zurich(arguments, logger):
         ##########CONNECTIONS
         dbservice = DBService(mysql_host,mysql_port,mysql_user,mysql_passw,mysql_db)
 
-
+        start_time = time.time()
+        now = datetime.now()
+        dtnow_string = now.strftime("%Y%m%d_%H%M%S")
         if costtype == 'fixed':
             logger.info('executing fixed costs process...')
             df = dbservice.executeFixedCost()
             logger.info('fixed costs process DONE')
-        elif costtype == 'start_based':
+        elif costtype == 'startbased':
             logger.info('executing costs based on start date process...')
             df = dbservice.executeStartBasedCost()
             logger.info('costs based on start date DONE')
@@ -40,10 +44,14 @@ def main_zurich(arguments, logger):
             sys.exit(1)
 
         if tocsv == 'yes':
-            --
+            manager.exportToCSV(df,costtype,dtnow_string)
 
         else:
             logger.info('Data is not going to be exported')
+    except:
+        logger.critical("something went really bad")
+    finally:
+        print("--- %s seconds ---" % (time.time() - start_time))
 
 
 

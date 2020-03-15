@@ -11,7 +11,7 @@ sys.path.insert(0, 'src.zip')
 
 def build_argument_parser():
     parser = argparse.ArgumentParser(description='Test_berlin_project_parser')
-    parser.add_argument("--costtype", required=False, type=str, default='1',choices=['fixed','start_based'], help="type of cost calculation desired")
+    parser.add_argument("--costtype", required=False, type=str, default='1',choices=['fixed','startbased'], help="type of cost calculation desired")
     parser.add_argument("--tocsv", required=False, type=str, default='yes',choices=['yes','no'], help="this option will export to a cvs file with the solution")
     return parser
 
