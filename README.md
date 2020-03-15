@@ -35,6 +35,7 @@ Notice: you can find examples into output folder**
 Now I will insert the records, the volume dont require external tables or processes to insert by batches
 
 >####Reporting periods creation
+>
 >create table smallpdf.reporting_periods (
 >reporting_period_start date,
 >reporting_period_end date,
@@ -44,6 +45,7 @@ Now I will insert the records, the volume dont require external tables or proces
 Adding rows...
 
 >####Insertion
+>
 >insert into smallpdf.reporting_periods values ('2019-01-01 00:00:00','2019-02-01 00:00:00',31);
 >insert into smallpdf.reporting_periods values ('2019-02-01 00:00:00','2019-03-01 00:00:00',28);
 >insert into smallpdf.reporting_periods values ('2019-03-01 00:00:00','2019-04-01 00:00:00',31);
@@ -59,6 +61,7 @@ Adding rows...
 
 
 >####Invoices table creation
+>
 >create table smallpdf.invoices (
 >plan varchar(20),
 >supply_date_start date,
@@ -68,7 +71,8 @@ Adding rows...
 
 Adding rows (example)
 
->####example 
+>####example
+>
 >insert into smallpdf.invoices values ('yearly','2019-12-31 00:00:00','2020-12-31 00:00:00',119);
 >insert into smallpdf.invoices values ('yearly','2019-12-31 00:00:00','2020-12-31 00:00:00',119);
 >insert into smallpdf.invoices values ('monthly','2019-12-31 00:00:00','2020-01-31 00:00:00',12);
@@ -100,6 +104,7 @@ Create auxiliar table
 First query generate, you can execute with the parameter costtype = startbased
 
 >####if we consider full payment on start_date
+>
 >select 
 >a.reporting_period_start,
 >a.reporting_period_end, 
@@ -111,6 +116,7 @@ First query generate, you can execute with the parameter costtype = startbased
 Second query generate, you can execute with the parameter costtype = fixed
 
 >####if we consider the benefit divided between all the subscription dates
+>
 >select reporting_period_start,reporting_period_end,reporting_period_length,sum(fixed_cost) from smallpdf.reporting_periods report
 >left join
 >(
