@@ -5,6 +5,14 @@ This is a test to check my performance
 
 1 Code
 ===============
+
+<h3> SCRIPT </h3>
+
+<p> You can find the script Zurich_synthetic_invoices.py, you can execute it like Zurich_synthetic_invoices.py 500 2020-01-01 2020-12-31, being the first parameter the number of lines and the 2nd and 3rd the dates in between to generate random start_dates, the csv file will appear in the same path </p>
+
+
+<h3> PROJECT </h3>
+
 <p>You can execute the code executing the launcher.py with the parameters</p>
 
 1. costtype: choices=[fixed,startbased], how yo want to calculate the benefits, dividing all the amount per day of availability or assuming the entire payment on the start date
